@@ -5,4 +5,6 @@ Technologies wired up for use:
 - pytest (test runner)
 - allure (reporting)
 
+Download Allure CLI http://wiki.qatools.ru/display/AL/Allure+Commandline
+
 version: 0.1
