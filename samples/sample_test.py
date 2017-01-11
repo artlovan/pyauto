@@ -21,7 +21,5 @@ class SampleTests(CoreSetUp):
         super(SampleTests, self).tearDown(screenshot, *args, **kwargs)
 
     def test_my_first_test(self):
-        self.allure_screenshot()
-        self.allure_screenshot()
-        assert False
+        pass
 

@@ -3,8 +3,20 @@ import paths
 
 
 class Context(object):
-    ROOT_DIR = paths.ROOT_DIR
-    BASE_URL = None
+    class Path:
+        ROOT_DIR = paths.ROOT_DIR
+
+    class Url:
+        BASE_URL = None
+
+    class Excel:
+        excel_data = None
+        excel_path = None
+
+
+class MockContext(Context):
+    MOCK_ACTIVATE = False
+    ALLURE_REPORT = False
 
 
 class AllureWrapper(object):
@@ -15,8 +27,8 @@ class AllureWrapper(object):
     @staticmethod
     def get_allure_command():
         command = 'allure generate ' + \
-                  os.path.join(Context.ROOT_DIR, AllureWrapper.DIRECTORY_WITH_REPORT) + \
+                  os.path.join(Context.Path.ROOT_DIR, AllureWrapper.DIRECTORY_WITH_REPORT) + \
                   ' ' + \
-                  '-o ' + os.path.join(Context.ROOT_DIR, AllureWrapper.DIRECTORY_WITH_RESULTS)
+                  '-o ' + os.path.join(Context.Path.ROOT_DIR, AllureWrapper.DIRECTORY_WITH_RESULTS)
 
         return command

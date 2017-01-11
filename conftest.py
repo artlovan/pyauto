@@ -295,6 +295,9 @@ hookspec = HookspecMarker("pytest")
 
 def pytest_sessionfinish(session, exitstatus):
     """ whole test run finishes. """
+    from core.container import MockContext
+    if MockContext.MOCK_ACTIVATE is True: return ''
+
     from core.container import AllureWrapper
     command = AllureWrapper.get_allure_command()
 
